@@ -61,28 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => HomeBloc(homeRepository: context.read<HomeRepository>())..add(HomePageLoad()),
-      child: BlocListener<HomeBloc, HomeState>(
-        listener: (context, state) {
-          if (state.status is DataFetchFailed) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text("Error")),
-            );
-          }
-          if (state.status is DataFetchSuccess) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text("Product fetched"),
-                duration: Duration(seconds: 2),
-              ),
-            );
-          }
-        },
+
         child: BlocBuilder<HomeBloc, HomeState>(
-          builder: (context, state) {
+          builder: (context, state){
             if (state.status is DataFetchLoading) {
               return const LoadingScreen();
             }
-
             if (state.status is DataFetchSuccess) {
                 return Scaffold(
                   backgroundColor: Colors.white,
@@ -100,7 +84,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),)
                     ],
                   ),
-                  body:SingleChildScrollView(
+                  body:BlocListener<HomeBloc, HomeState>(
+                listener: (context, state) {
+                  if (state.status is DataFetchFailed) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Error")),
+                    );
+                  }
+                  if (state.status is DataFetchSuccess) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Product fetched"),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  }
+                },
+                  child: SingleChildScrollView(
                     child: Container(
                       child: Padding(
                           padding:EdgeInsets.all(20),
@@ -277,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-
+                  ),
                   bottomNavigationBar: BottomNavigation(),
                 );
 
@@ -285,7 +285,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return const Center(child: Text("No Data Available"));
             },
           ),
-      ),
+
     );
   }
 }
