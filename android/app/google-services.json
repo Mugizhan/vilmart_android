@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "310823121785",
+    "project_id": "mugiliyyangarbakery-25d9e",
+    "storage_bucket": "mugiliyyangarbakery-25d9e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310823121785:android:fc4af1cd7b33d0047f75a8",
+        "android_client_info": {
+          "package_name": "com.example.mib"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE2m07Wd3A9PBGikzQoI_1zlCzevdSAXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310823121785:android:f305eb7935b9f07b7f75a8",
+        "android_client_info": {
+          "package_name": "com.example.vilmart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE2m07Wd3A9PBGikzQoI_1zlCzevdSAXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
